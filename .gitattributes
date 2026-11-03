@@ -1,0 +1,2 @@
+# Normalize line endings so QA diff review (Gate 1) stays free of whitespace churn.
+* text=auto eol=lf
