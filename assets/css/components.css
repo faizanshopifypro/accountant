@@ -1,0 +1,788 @@
+/* ==========================================================================
+   AP Accountax Ltd — Reusable components
+   ========================================================================== */
+
+/* ------------------------------------------------------- section label (eyebrow)
+   The recurring "ledger" motif: a sequence numeral, a brass hairline, a
+   small caps label. Used once per section so the page reads as an index. */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  font-family: var(--f-text);
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-accent-text);
+}
+
+.eyebrow::after {
+  content: "";
+  flex: 1 1 auto;
+  max-width: 5rem;
+  height: var(--border-hairline);
+  background-color: var(--c-accent);
+}
+
+.eyebrow--no-rule::after {
+  display: none;
+}
+
+.eyebrow__num {
+  font-variant-numeric: tabular-nums;
+  color: var(--c-text-muted);
+}
+
+.section--dark .eyebrow,
+.cta .eyebrow {
+  color: var(--c-accent-on-dark);
+}
+
+.section--dark .eyebrow::after,
+.cta .eyebrow::after {
+  background-color: var(--c-accent-on-dark);
+  opacity: 0.6;
+}
+
+.section--dark .eyebrow__num,
+.cta .eyebrow__num {
+  color: var(--c-on-dark-muted);
+}
+
+/* ------------------------------------------------------------------ buttons */
+
+.btn {
+  --btn-bg: var(--c-slate);
+  --btn-fg: var(--c-ivory);
+  --btn-bd: var(--c-slate);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  min-height: var(--tap);
+  padding: var(--s-4) var(--s-8);
+  border: var(--border-hairline) solid var(--btn-bd);
+  border-radius: var(--r-sm);
+  background-color: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--f-text);
+  font-size: var(--t-ui);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.005em;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color var(--d-base) var(--ease),
+    border-color var(--d-base) var(--ease),
+    color var(--d-base) var(--ease),
+    transform var(--d-fast) var(--ease);
+}
+
+.btn:hover {
+  --btn-bg: var(--c-slate-deep);
+  --btn-bd: var(--c-slate-deep);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Secondary: outlined, for the lower-priority action beside a primary CTA. */
+.btn--secondary {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-slate);
+  --btn-bd: var(--c-rule-strong);
+}
+
+.btn--secondary:hover {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-slate-deep);
+  --btn-bd: var(--c-slate);
+}
+
+/* On ink or slate bands. */
+.btn--on-dark {
+  --btn-bg: var(--c-ivory);
+  --btn-fg: var(--c-ink);
+  --btn-bd: var(--c-ivory);
+}
+
+.btn--on-dark:hover {
+  --btn-bg: var(--c-accent-on-dark);
+  --btn-bd: var(--c-accent-on-dark);
+  --btn-fg: var(--c-ink);
+}
+
+.btn--ghost-on-dark {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-ivory);
+  --btn-bd: var(--c-rule-dark);
+}
+
+.btn--ghost-on-dark:hover {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-ivory);
+  --btn-bd: var(--c-on-dark-muted);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* Text link with a sliding rule — used where a full button would overpower. */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: var(--tap);
+  color: var(--c-slate);
+  font-size: var(--t-ui);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link-arrow__text {
+  border-bottom: var(--border-hairline) solid var(--c-rule-strong);
+  padding-bottom: 2px;
+  transition: border-color var(--d-base) var(--ease);
+}
+
+.link-arrow svg {
+  flex: none;
+  transition: transform var(--d-base) var(--ease);
+}
+
+.link-arrow:hover .link-arrow__text {
+  border-color: var(--c-slate);
+}
+
+.link-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+.cta .link-arrow,
+.footer .link-arrow,
+.section--dark .link-arrow {
+  color: var(--c-on-dark);
+}
+
+.cta .link-arrow__text,
+.footer .link-arrow__text,
+.section--dark .link-arrow__text {
+  border-color: var(--c-rule-dark);
+}
+
+.cta .link-arrow:hover .link-arrow__text,
+.footer .link-arrow:hover .link-arrow__text,
+.section--dark .link-arrow:hover .link-arrow__text {
+  border-color: var(--c-accent-on-dark);
+}
+
+/* --------------------------------------------------------------- brand mark
+   Temporary typographic treatment. AP Accountax has supplied no logo file;
+   see docs/brand.md. */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-4);
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  flex: none;
+  border: var(--border-strong) solid currentcolor;
+  border-radius: var(--r-sm);
+  font-family: var(--f-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  transition: background-color var(--d-base) var(--ease), color var(--d-base) var(--ease), border-color var(--d-base) var(--ease);
+}
+
+.brand:hover .brand__mark {
+  background-color: var(--c-accent);
+  border-color: var(--c-accent);
+  color: var(--c-ink);
+}
+
+.brand__text {
+  display: block;
+  line-height: 1.15;
+}
+
+.brand__name {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.3125rem;
+  font-weight: 600;
+  letter-spacing: var(--ls-snug);
+}
+
+.brand__tag {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+
+@media (max-width: 22.5rem) {
+  .brand__tag {
+    letter-spacing: 0.08em;
+    font-size: 0.6875rem;
+  }
+
+  .brand__name {
+    font-size: 1.125rem;
+  }
+
+  .brand__mark {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+/* ------------------------------------------------------------------- header */
+
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: var(--c-ivory);
+  transition: background-color var(--d-slow) var(--ease), box-shadow var(--d-slow) var(--ease),
+    color var(--d-slow) var(--ease);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-6);
+  min-height: var(--header-h);
+}
+
+/* Transparent over the ink hero, solid paper once the hero is passed. */
+.header[data-scrolled="true"] {
+  background-color: rgba(251, 248, 242, 0.94);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  box-shadow: var(--shadow-header);
+  color: var(--c-ink);
+}
+
+/* While the mobile panel is open the header sits on top of the ink overlay,
+   so the solid paper surface must be suppressed. */
+.header[data-nav-open="true"] {
+  background-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  color: var(--c-ivory);
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__actions {
+  display: none;
+}
+
+/* Tablet+: keep the primary CTA visible even when the full nav is still
+   behind the menu button. Consultation is the commercial action. */
+@media (min-width: 48rem) {
+  .header__actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .header__inner {
+    gap: var(--s-4);
+  }
+
+  .nav-toggle {
+    margin-left: var(--s-4);
+  }
+}
+
+@media (min-width: 64rem) {
+  .header__nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .header__actions {
+    margin-left: 0;
+  }
+
+  .header__nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--s-8);
+  }
+
+  .nav-toggle {
+    margin-left: 0;
+  }
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: inherit;
+  font-size: var(--t-ui);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: opacity var(--d-base) var(--ease);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: calc(50% - 0.95em);
+  width: 100%;
+  height: var(--border-hairline);
+  background-color: currentcolor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--d-base) var(--ease);
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current="true"]::after {
+  transform: scaleX(1);
+}
+
+.nav-link[aria-current="true"] {
+  font-weight: 700;
+}
+
+/* Header CTA sits in the header on desktop only. */
+.header__actions .btn {
+  padding-inline: var(--s-6);
+}
+
+/* Primary CTA stays solid over the dark hero so it is never the quietest
+   control in the header. */
+.header:not([data-scrolled="true"]) .header__actions .btn {
+  --btn-bg: var(--c-ivory);
+  --btn-fg: var(--c-ink);
+  --btn-bd: var(--c-ivory);
+}
+
+.header:not([data-scrolled="true"]) .header__actions .btn:hover {
+  --btn-bg: var(--c-accent-on-dark);
+  --btn-fg: var(--c-ink);
+  --btn-bd: var(--c-accent-on-dark);
+}
+
+/* ---------------------------------------------------------- mobile nav */
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: var(--tap);
+  min-width: var(--tap);
+  justify-content: flex-end;
+  color: inherit;
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+@media (min-width: 64rem) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.nav-toggle__bars {
+  position: relative;
+  width: 24px;
+  height: 10px;
+  flex: none;
+}
+
+.nav-toggle__bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--border-strong);
+  background-color: currentcolor;
+  transition: transform var(--d-base) var(--ease), opacity var(--d-fast) var(--ease);
+}
+
+.nav-toggle__bars span:first-child {
+  top: 0;
+}
+
+.nav-toggle__bars span:last-child {
+  bottom: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  display: grid;
+  grid-template-rows: var(--header-h) 1fr;
+  background-color: var(--c-ink);
+  color: var(--c-on-dark);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--d-base) var(--ease), visibility var(--d-base) var(--ease);
+}
+
+.mobile-nav[data-open="true"] {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (min-width: 64rem) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+.mobile-nav__body {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: var(--s-10);
+}
+
+.mobile-nav__list {
+  border-top: var(--border-hairline) solid var(--c-rule-dark);
+}
+
+.mobile-nav__list a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-5);
+  padding-block: var(--s-5);
+  border-bottom: var(--border-hairline) solid var(--c-rule-dark);
+  color: var(--c-on-dark);
+  font-family: var(--f-display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: var(--ls-snug);
+  text-decoration: none;
+}
+
+.mobile-nav__list a[aria-current="true"] {
+  color: var(--c-accent-on-dark);
+}
+
+.mobile-nav__num {
+  font-family: var(--f-text);
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-on-dark-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.mobile-nav__foot {
+  margin-top: auto;
+  padding-top: var(--s-10);
+  display: grid;
+  gap: var(--s-5);
+}
+
+.mobile-nav__contact {
+  display: grid;
+  gap: var(--s-2);
+  font-size: var(--t-ui);
+  color: var(--c-on-dark-muted);
+}
+
+.mobile-nav__contact a {
+  color: var(--c-on-dark);
+  text-decoration: none;
+  border-bottom: var(--border-hairline) solid var(--c-rule-dark);
+  padding-bottom: 2px;
+  justify-self: start;
+}
+
+/* --------------------------------------------------------------- data list
+   Honest facts only — address, coverage, contact. No invented metrics. */
+
+.factbar {
+  display: grid;
+  gap: var(--s-5);
+  border-top: var(--border-hairline) solid var(--c-rule-dark);
+  padding-top: var(--s-6);
+}
+
+@media (min-width: 48rem) {
+  .factbar {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-8);
+  }
+}
+
+.factbar__item dt {
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-on-dark-muted);
+  margin-bottom: var(--s-3);
+}
+
+.factbar__item dd {
+  margin: 0;
+  font-size: var(--t-ui);
+  font-weight: 500;
+  color: var(--c-on-dark);
+  line-height: var(--lh-normal);
+}
+
+.factbar__item a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: var(--border-hairline) solid var(--c-rule-dark);
+  padding-bottom: 1px;
+  transition: border-color var(--d-base) var(--ease);
+}
+
+.factbar__item a:hover {
+  border-color: var(--c-accent-on-dark);
+}
+
+/* ------------------------------------------------------------------ figures */
+
+.figure {
+  position: relative;
+  margin: 0;
+}
+
+.figure img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Offset brass rule: a quiet frame that echoes the ledger line. */
+.figure--framed::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -14px -14px;
+  width: 100%;
+  height: 100%;
+  border-left: var(--border-hairline) solid var(--c-accent);
+  border-bottom: var(--border-hairline) solid var(--c-accent);
+  pointer-events: none;
+}
+
+@media (min-width: 48rem) {
+  .figure--framed::after {
+    inset: auto auto -22px -22px;
+  }
+}
+
+.figure__caption {
+  margin-top: var(--s-4);
+  font-size: var(--t-label);
+  line-height: var(--lh-normal);
+  color: var(--c-text-muted);
+  max-width: 34ch;
+}
+
+/* ------------------------------------------------------------------- panels */
+
+.panel {
+  background-color: var(--c-card);
+  border: var(--border-hairline) solid var(--c-rule);
+  padding: var(--s-8);
+}
+
+@media (min-width: 48rem) {
+  .panel {
+    padding: var(--s-10);
+  }
+}
+
+/* ------------------------------------------------------------------- notice
+   Used to flag content that AP Accountax must confirm before publication. */
+
+.notice {
+  display: flex;
+  gap: var(--s-4);
+  border-left: var(--border-strong) solid var(--c-accent);
+  padding: var(--s-4) 0 var(--s-4) var(--s-5);
+  font-size: var(--t-label);
+  line-height: var(--lh-normal);
+  color: var(--c-text-muted);
+  max-width: 44ch;
+}
+
+.section--dark .notice,
+.cta .notice {
+  border-left-color: var(--c-accent-on-dark);
+  color: var(--c-on-dark-muted);
+}
+
+/* --------------------------------------------------------------------- form */
+
+.form {
+  display: grid;
+  gap: var(--s-6);
+}
+
+.field {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.field__label {
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.field__optional {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--c-text-muted);
+}
+
+.field__control {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.875rem 1rem;
+  background-color: var(--c-card);
+  border: var(--border-hairline) solid var(--c-rule-input);
+  border-radius: var(--r-sm);
+  color: var(--c-text);
+  font-size: var(--t-ui);
+  line-height: var(--lh-normal);
+  transition: border-color var(--d-base) var(--ease), box-shadow var(--d-base) var(--ease);
+}
+
+textarea.field__control {
+  min-height: 9rem;
+  padding-top: 0.875rem;
+  resize: vertical;
+}
+
+select.field__control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%232f3338' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--s-4) center;
+  padding-right: var(--s-10);
+}
+
+.field__control:hover {
+  border-color: var(--c-slate);
+}
+
+.field__control:focus {
+  outline: none;
+}
+
+.field__control:focus-visible {
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(176, 126, 46, 0.28);
+  outline: none;
+}
+
+.field__control[aria-invalid="true"] {
+  border-color: var(--c-danger);
+  border-width: var(--border-strong);
+}
+
+.field__control[aria-invalid="true"]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(163, 41, 27, 0.22);
+}
+
+.field__error {
+  display: none;
+  align-items: flex-start;
+  gap: var(--s-2);
+  font-size: var(--t-label);
+  font-weight: 600;
+  line-height: var(--lh-normal);
+  color: var(--c-danger);
+}
+
+.field__error[data-visible="true"] {
+  display: flex;
+}
+
+.field__hint {
+  font-size: var(--t-label);
+  line-height: var(--lh-normal);
+  color: var(--c-text-muted);
+}
+
+/* Status region: announced to screen readers via aria-live. */
+.form__status {
+  display: none;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-5);
+  border-left: var(--border-strong) solid currentcolor;
+  background-color: var(--c-parchment);
+  font-size: var(--t-ui);
+  font-weight: 600;
+  line-height: var(--lh-normal);
+}
+
+.form__status[data-state="error"] {
+  display: flex;
+  color: var(--c-danger);
+}
+
+.form__status[data-state="success"] {
+  display: flex;
+  color: var(--c-success);
+}
+
+/* ----------------------------------------------------------------- reveal
+   A single restrained entrance, applied to section blocks only, and fully
+   disabled for prefers-reduced-motion. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity var(--d-slow) var(--ease), transform var(--d-slow) var(--ease);
+  }
+
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ap-accountax-homepage",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AP Accountax Ltd homepage — static HTML/CSS/JS prototype, convertible to WordPress.",
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "qa:shots": "node tools/responsive-shots.mjs",
+    "qa:a11y": "node tools/a11y-audit.mjs",
+    "verify": "npm run qa:a11y && npm run qa:shots"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "playwright": "^1.49.1"
+  }
+}

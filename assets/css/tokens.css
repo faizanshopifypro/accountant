@@ -1,0 +1,136 @@
+/* ==========================================================================
+   AP Accountax Ltd — Design tokens
+   Direction: "The Ledger" — warm paper surfaces, charcoal structure, brass
+   accents, hairline rules and sequence numerals.
+
+   Palette decision: charcoal / graphite rather than forest green. Green was
+   reading as organic / wellness; charcoal reads as professional services
+   without the generic navy-accounting template.
+
+   Every pairing below was verified against WCAG 2.2 AA:
+   4.5:1 for text, 3:1 for large text and non-text UI boundaries.
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------- colour */
+
+  /* Brand — charcoal / slate */
+  --c-ink: #121417;        /* deepest charcoal: headings, dark bands        */
+  --c-slate: #2a2e33;      /* primary brand grey: buttons, CTA band         */
+  --c-slate-deep: #1c1f24; /* primary hover                                 */
+
+  /* Paper surfaces (retained — the identity's strongest asset) */
+  --c-ivory: #fbf8f2;      /* page canvas                                   */
+  --c-parchment: #f2ede3;  /* alternate section surface                     */
+  --c-card: #fffdf9;       /* elevated surface                              */
+
+  /* Text on light */
+  --c-text: #2f3338;       /* body            12.00:1 on ivory             */
+  --c-text-muted: #5e646c; /* secondary        5.64:1 on ivory             */
+  --c-heading: var(--c-ink);
+
+  /* Text on dark */
+  --c-on-dark: #fbf8f2;        /* body        17.41:1 on ink, 12.89 slate  */
+  --c-on-dark-muted: #b4b9c0;  /* secondary    9.35:1 on ink,  6.92 slate  */
+
+  /* Accent — brass. Split by role: the lighter brass does not reach 4.5:1
+     on ivory, so small text on light uses --c-accent-text only. */
+  --c-accent-text: #8a6117; /* small accent text on light  5.21:1 on ivory */
+  --c-accent: #b07e2e;      /* rules, numerals, focus ring 3.38:1 on ivory */
+  --c-accent-on-dark: #c99a4a; /* accent on dark            7.21:1 on ink  */
+
+  /* Lines */
+  --c-rule: #ded7c9;        /* decorative hairline on light                 */
+  --c-rule-strong: #c7bca6; /* emphasised divider on light                  */
+  --c-rule-input: #6f7580;  /* form control boundary       4.37:1 on ivory  */
+  --c-rule-dark: #3a3f46;   /* hairline on dark bands                       */
+
+  /* Status */
+  --c-danger: #a3291b;      /* 7.15:1 on card                               */
+  --c-success: #2f5d4a;     /* quiet confirmation, not a brand colour       */
+
+  /* ------------------------------------------------------------ typography */
+  --f-display: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --f-text: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Fluid scale. Raised floor values after the independent review —
+     body and UI were comfortable; labels and brand tag were too quiet. */
+  --t-hero: clamp(2.875rem, 1.4rem + 5.8vw, 4.75rem);     /* 46 → 76px */
+  --t-h2: clamp(2.125rem, 1.35rem + 2.9vw, 3.375rem);     /* 34 → 54px */
+  --t-h3: clamp(1.5rem, 1.2rem + 1.1vw, 1.875rem);        /* 24 → 30px */
+  --t-h4: clamp(1.1875rem, 1.08rem + 0.4vw, 1.375rem);    /* 19 → 22px */
+  --t-lead: clamp(1.1875rem, 1.05rem + 0.5vw, 1.375rem);  /* 19 → 22px */
+  --t-body: clamp(1.125rem, 1.06rem + 0.22vw, 1.1875rem); /* 18 → 19px */
+  --t-ui: 1.0625rem;                                      /* 17px      */
+  --t-label: 0.875rem;                                    /* 14px      */
+  --t-numeral: clamp(2.5rem, 1.5rem + 4vw, 4rem);         /* 40 → 64px */
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
+
+  --ls-tight: -0.022em;
+  --ls-snug: -0.01em;
+  --ls-label: 0.12em;
+
+  --measure: 60ch;
+  --measure-tight: 44ch;
+
+  /* --------------------------------------------------------------- spacing */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.25rem;
+  --s-6: 1.5rem;
+  --s-8: 2rem;
+  --s-10: 2.5rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+  --s-20: 5rem;
+  --s-24: 6rem;
+
+  --section-y: clamp(4.5rem, 9vw, 8.5rem);
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --container: 1280px;
+  --container-wide: 1400px;
+  --container-text: 760px;
+
+  /* ----------------------------------------------------------------- shape */
+  --r-none: 0;
+  --r-sm: 2px;
+  --r-md: 4px;
+
+  --border-hairline: 1px;
+  --border-strong: 2px;
+
+  --shadow-raised: 0 1px 2px rgba(18, 20, 23, 0.05), 0 10px 28px -14px rgba(18, 20, 23, 0.18);
+  --shadow-header: 0 1px 0 rgba(18, 20, 23, 0.08), 0 10px 30px -22px rgba(18, 20, 23, 0.35);
+
+  /* ---------------------------------------------------------------- motion */
+  --d-fast: 140ms;
+  --d-base: 220ms;
+  --d-slow: 420ms;
+  --ease: cubic-bezier(0.2, 0.6, 0.3, 1);
+
+  /* ------------------------------------------------------------------ misc */
+  --header-h: 4.75rem;
+  --tap: 48px;
+  --focus-ring: 2px;
+  --focus-offset: 3px;
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --header-h: 5.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --d-fast: 1ms;
+    --d-base: 1ms;
+    --d-slow: 1ms;
+  }
+}
