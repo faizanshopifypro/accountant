@@ -1,0 +1,17 @@
+---
+description: Verification, visual review, interaction testing, regression checks, and final handoff for completed changes.
+globs:
+alwaysApply: true
+---
+
+# Quality Assurance
+
+- Inspect the final diff and verify that changes are limited to the requested scope.
+- Run relevant project lint, typecheck, test, and build commands when available.
+- Inspect the actual rendered result at relevant desktop and mobile widths when browser or preview tools are available.
+- Test primary actions, navigation, forms, menus, dialogs, filters, and important error/loading/empty states.
+- Check console and network errors when browser tools are available.
+- Review semantics, labels, keyboard operation, focus, contrast, overflow, and layout shift.
+- Fix material defects before handoff.
+- Never claim a check passed if it was not run. State blocked or unavailable checks explicitly.
+- Consult `docs/qa-workflow.md` and `templates/design-review.md`.

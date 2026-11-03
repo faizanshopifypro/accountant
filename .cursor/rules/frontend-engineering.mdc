@@ -1,0 +1,18 @@
+---
+description: Frontend architecture, component implementation, responsive behavior, performance, and maintainability.
+globs: **/*.{html,css,scss,js,jsx,ts,tsx,vue,svelte,liquid,php}
+alwaysApply: false
+---
+
+# Frontend Engineering
+
+- Inspect existing components, styles, tokens, dependencies, and patterns before implementing.
+- Follow the project's framework and conventions; do not introduce a new stack or dependency without a clear reason.
+- Reuse existing components and design tokens. Avoid both copy-paste duplication and premature abstraction.
+- Use semantic HTML, accessible controls, clear component boundaries, and predictable state.
+- Ensure every visible interactive control has a real, correct behavior.
+- Implement responsive layouts intentionally; check narrow widths and long/realistic content.
+- Avoid fixed heights for content-heavy areas unless the design truly requires them.
+- Optimize image dimensions, formats, loading, font delivery, and layout stability.
+- Do not alter unrelated routes, APIs, schemas, integrations, analytics, SEO, or business logic.
+- Consult `docs/engineering-standards.md` when the change is substantial.

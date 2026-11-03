@@ -1,0 +1,19 @@
+---
+description: Design direction, visual quality, UX strategy, page composition, and design critique for user-facing interfaces.
+globs: **/*.{html,css,scss,js,jsx,ts,tsx,vue,svelte,liquid,php}
+alwaysApply: false
+---
+
+# Design Direction
+
+Apply when designing or changing user-facing pages, flows, components, or visual systems.
+
+- Start from the user's task, audience, brand, content, and business goal; do not start from a trendy visual effect.
+- Inspect existing brand assets, design tokens, page patterns, and references before choosing a direction.
+- Define the page's hierarchy, content structure, primary action, and responsive strategy before detailed styling.
+- Make a distinct design decision appropriate to this project. Do not reuse a generic AI landing-page formula.
+- Use consistent spacing, typography, color roles, content widths, image treatment, and component states.
+- Use realistic content lengths and actual supplied assets. Never invent social proof, statistics, customer logos, or claims.
+- Remove decorative elements that do not improve comprehension, identity, hierarchy, or usability.
+- Review the rendered page critically and refine awkward alignment, inconsistent rhythm, weak hierarchy, and generic sections.
+- Consult `docs/design-standards.md` for the detailed visual and UX standard.

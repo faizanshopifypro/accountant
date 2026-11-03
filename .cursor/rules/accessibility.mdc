@@ -1,0 +1,17 @@
+---
+description: Accessibility and inclusive interaction requirements for UI components and user flows.
+globs: **/*.{html,css,scss,js,jsx,ts,tsx,vue,svelte,liquid,php}
+alwaysApply: false
+---
+
+# Accessibility
+
+- Use semantic landmarks, headings, buttons, links, lists, and form elements.
+- Ensure keyboard access, logical tab order, visible focus, and sensible focus management for dialogs and menus.
+- Give inputs programmatic labels and associate help text and validation errors.
+- Provide accessible names for icon-only controls.
+- Use sufficient contrast and never rely on color alone to convey meaning.
+- Respect reduced-motion preferences.
+- Ensure touch targets and controls are usable on mobile.
+- Use alt text that conveys the purpose of meaningful images; use empty alt text for decorative images.
+- Do not add ARIA where native HTML semantics already provide the required behavior.
