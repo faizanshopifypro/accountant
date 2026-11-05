@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="AP Accountax Ltd — Easy Affordable Accounting">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="theme-color" content="#121417">
+<meta name="theme-color" content="#0a1a2c">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,13 +65,23 @@
   <div class="container header__inner">
 
     <!-- Temporary typographic brand treatment: no logo file has been supplied. -->
-    <a class="brand" href="#top">
-      <span class="brand__mark" aria-hidden="true">AP</span>
-      <span class="brand__text">
-        <span class="brand__name">AP&nbsp;Accountax</span>
-        <span class="brand__tag">Easy Affordable Accounting</span>
-      </span>
-      <span class="visually-hidden"> — Home</span>
+    <a class="brand" href="#top" aria-label="AP Accountax Ltd — Easy Affordable Accounting, Home">
+      <img
+        class="brand__logo brand__logo--on-light"
+        src="assets/img/logo-160.png"
+        srcset="assets/img/logo-128.png 128w, assets/img/logo-160.png 160w, assets/img/logo-192.png 192w"
+        sizes="(min-width: 64rem) 326px, 300px"
+        width="688" height="160"
+        alt=""
+        decoding="async">
+      <img
+        class="brand__logo brand__logo--on-dark"
+        src="assets/img/logo-on-dark-160.png"
+        srcset="assets/img/logo-on-dark-128.png 128w, assets/img/logo-on-dark-160.png 160w, assets/img/logo-on-dark-192.png 192w"
+        sizes="(min-width: 64rem) 326px, 300px"
+        width="688" height="160"
+        alt=""
+        decoding="async">
     </a>
 
     <nav class="header__nav" aria-label="Primary">
@@ -643,13 +653,15 @@
     <div class="footer__grid">
 
       <div class="footer__col">
-        <a class="brand" href="#top">
-          <span class="brand__mark" aria-hidden="true">AP</span>
-          <span class="brand__text">
-            <span class="brand__name">AP&nbsp;Accountax</span>
-            <span class="brand__tag">Easy Affordable Accounting</span>
-          </span>
-          <span class="visually-hidden"> — Home</span>
+        <a class="brand" href="#top" aria-label="AP Accountax Ltd — Easy Affordable Accounting, Home">
+          <img
+            class="brand__logo brand__logo--on-dark"
+            src="assets/img/logo-on-dark-160.png"
+            srcset="assets/img/logo-on-dark-128.png 128w, assets/img/logo-on-dark-160.png 160w, assets/img/logo-on-dark-192.png 192w"
+            sizes="300px"
+            width="688" height="160"
+            alt=""
+            loading="lazy" decoding="async">
         </a>
         <p class="footer__intro">
           An accountancy service run by professionals based in East London, helping customers

@@ -183,75 +183,50 @@
 }
 
 /* --------------------------------------------------------------- brand mark
-   Temporary typographic treatment. AP Accountax has supplied no logo file;
-   see docs/brand.md. */
+   Official logo from Logo/Elegant AP Accountax Branding.png.
+   Light and on-dark variants swap with the header surface. */
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--s-4);
+  flex: none;
   text-decoration: none;
   color: inherit;
 }
 
-.brand__mark {
-  display: grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  flex: none;
-  border: var(--border-strong) solid currentcolor;
-  border-radius: var(--r-sm);
-  font-family: var(--f-display);
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  transition: background-color var(--d-base) var(--ease), color var(--d-base) var(--ease), border-color var(--d-base) var(--ease);
-}
-
-.brand:hover .brand__mark {
-  background-color: var(--c-accent);
-  border-color: var(--c-accent);
-  color: var(--c-ink);
-}
-
-.brand__text {
+.brand__logo {
   display: block;
-  line-height: 1.15;
+  height: var(--logo-h);
+  width: auto;
+  max-width: min(78vw, 22rem);
 }
 
-.brand__name {
-  display: block;
-  font-family: var(--f-display);
-  font-size: 1.3125rem;
-  font-weight: 600;
-  letter-spacing: var(--ls-snug);
+.brand__logo--on-dark {
+  display: none;
 }
 
-.brand__tag {
+/* Transparent header over the navy hero uses the light wordmark. */
+.header:not([data-scrolled="true"]) .brand__logo--on-light,
+.header[data-nav-open="true"] .brand__logo--on-light,
+.footer .brand__logo--on-light,
+.mobile-nav .brand__logo--on-light {
+  display: none;
+}
+
+.header:not([data-scrolled="true"]) .brand__logo--on-dark,
+.header[data-nav-open="true"] .brand__logo--on-dark,
+.footer .brand__logo--on-dark,
+.mobile-nav .brand__logo--on-dark {
   display: block;
-  margin-top: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.78;
 }
 
 @media (max-width: 22.5rem) {
-  .brand__tag {
-    letter-spacing: 0.08em;
-    font-size: 0.6875rem;
+  :root {
+    --logo-h: 3.5rem;
   }
 
-  .brand__name {
-    font-size: 1.125rem;
-  }
-
-  .brand__mark {
-    width: 2.75rem;
-    height: 2.75rem;
+  .brand__logo {
+    max-width: min(72vw, 16rem);
   }
 }
 
@@ -714,8 +689,8 @@ select.field__control {
 }
 
 .field__control:focus-visible {
-  border-color: var(--c-accent);
-  box-shadow: 0 0 0 3px rgba(176, 126, 46, 0.28);
+  border-color: var(--c-accent-focus);
+  box-shadow: 0 0 0 3px rgba(168, 79, 34, 0.28);
   outline: none;
 }
 

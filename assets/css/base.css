@@ -56,6 +56,12 @@ img {
   filter: saturate(0.94);
 }
 
+/* Brand marks must keep exact logo colours — never desaturate them. */
+.brand__logo,
+.brand img {
+  filter: none;
+}
+
 input,
 select,
 textarea,
@@ -127,13 +133,15 @@ strong {
 /* ------------------------------------------------------------------- focus */
 
 :focus-visible {
-  outline: var(--focus-ring) solid var(--c-accent);
+  outline: var(--focus-ring) solid var(--c-accent-focus);
   outline-offset: var(--focus-offset);
 }
 
 .section--dark :focus-visible,
 .cta :focus-visible,
-.footer :focus-visible {
+.footer :focus-visible,
+.header:not([data-scrolled="true"]) :focus-visible,
+.mobile-nav :focus-visible {
   outline-color: var(--c-accent-on-dark);
 }
 
