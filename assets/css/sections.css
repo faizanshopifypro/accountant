@@ -258,15 +258,17 @@
 /* ================================================================ 4. VALUES */
 
 .values__head {
-  max-width: 34rem;
+  max-width: none;
 }
 
 .values__head h2 {
   margin-top: var(--s-6);
+  max-width: none;
 }
 
 .values__head .lead {
   margin-top: var(--s-5);
+  max-width: none;
 }
 
 .values {
@@ -292,22 +294,6 @@
   }
 }
 
-/* The leading value is given the full measure and a larger size, so the
-   group reads as a hierarchy rather than five equal tiles. */
-.values__item--lead {
-  grid-column: 1 / -1;
-}
-
-.values__item--lead h3 {
-  font-size: var(--t-h3);
-  max-width: 24ch;
-}
-
-.values__item--lead p {
-  font-size: var(--t-lead);
-  max-width: 56ch;
-}
-
 .values__item h3 {
   display: flex;
   align-items: baseline;
@@ -318,7 +304,7 @@
 .values__item p {
   margin-top: var(--s-3);
   color: var(--c-on-dark-muted);
-  max-width: 48ch;
+  max-width: none;
 }
 
 .values__marker {
